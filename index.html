@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ============ SEO / META (tiếng Việt) ============ -->
+  <title>WantSeoShopee — Phần mềm SEO Shopee & Anti-detect Browser tự động</title>
+  <meta name="description" content="WantSeoShopee: phần mềm tự động hoá SEO Shopee, nuôi & quản lý hàng trăm tài khoản bằng anti-detect browser, kịch bản tương tác mô phỏng người thật, xoay proxy tự động (KiotProxy, 1IP.VN). Bản quyền vĩnh viễn, hỗ trợ Zalo 24/7." />
+  <meta name="keywords" content="SEO Shopee, phần mềm SEO Shopee, nuôi acc Shopee, tăng tương tác Shopee, anti-detect browser, antidetect, quản lý profile, WantSeoShopee, đẩy top Shopee" />
+  <meta name="author" content="AdminLongpham — acchoanglong.com" />
+  <meta name="theme-color" content="#1d4ed8" />
+
+  <!-- Open Graph / Mạng xã hội. TODO(user): đổi og:url thành domain thật khi deploy -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="WantSeoShopee — Tự động hoá SEO Shopee đỉnh cao" />
+  <meta property="og:description" content="Nuôi & quản lý hàng trăm tài khoản Shopee an toàn, chạy kịch bản SEO mô phỏng người thật, xoay proxy tự động. Bản quyền vĩnh viễn." />
+  <meta property="og:image" content="assets/img/logo.png" />
+  <meta property="og:url" content="https://acchoanglong.com" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+
+  <!-- TODO(user): đổi tất cả "acchoanglong.com" sang domain thật (canonical, og:url, sitemap.xml, JSON-LD) -->
+  <link rel="canonical" href="https://acchoanglong.com/" />
+
+  <link rel="icon" type="image/png" href="assets/img/logo.png" />
+
+  <!-- ============ Fonts (Be Vietnam Pro — giống app) ============ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- ============ Tailwind (Play CDN, zero-build) ============ -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Inline theme — đồng bộ hệ màu & font của app WantSeoShopee
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              50: "#eff6ff", 100: "#dbeafe", 200: "#bfdbfe", 300: "#93c5fd",
+              400: "#60a5fa", 500: "#2563eb", 600: "#1d4ed8", 700: "#1e40af",
+              800: "#1e3a8a", 900: "#172554",
+            },
+            ink: {
+              50: "#f8fafc", 100: "#f1f5f9", 200: "#e2e8f0", 300: "#cbd5e1",
+              400: "#94a3b8", 500: "#64748b", 600: "#475569", 700: "#334155",
+              800: "#1e293b", 900: "#0f172a",
+            },
+          },
+          fontFamily: {
+            sans: ['"Be Vietnam Pro"', "system-ui", "-apple-system", "sans-serif"],
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- ============ CSS tuỳ biến ============ -->
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+
+  <!-- ============ Structured data (SEO — rich results) ============ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "WantSeoShopee",
+        "operatingSystem": "Windows",
+        "applicationCategory": "BusinessApplication",
+        "description": "Phần mềm tự động hoá SEO Shopee, quản lý hàng trăm tài khoản bằng anti-detect browser, kịch bản tương tác mô phỏng người thật, xoay proxy tự động.",
+        "url": "https://acchoanglong.com/",
+        "image": "https://acchoanglong.com/assets/img/logo.png",
+        "inLanguage": "vi",
+        "offers": {
+          "@type": "AggregateOffer",
+          "priceCurrency": "VND",
+          "lowPrice": "500000",
+          "highPrice": "5000000",
+          "offerCount": "3"
+        },
+        "publisher": { "@id": "https://acchoanglong.com/#org" }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://acchoanglong.com/#org",
+        "name": "WantSeoShopee",
+        "url": "https://acchoanglong.com/",
+        "logo": "https://acchoanglong.com/assets/img/logo.png",
+        "contactPoint": [
+          { "@type": "ContactPoint", "telephone": "+84774150125", "contactType": "sales", "areaServed": "VN", "availableLanguage": "Vietnamese" },
+          { "@type": "ContactPoint", "telephone": "+84963354832", "contactType": "customer support", "areaServed": "VN", "availableLanguage": "Vietnamese" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "Dùng tool có bị Shopee khoá tài khoản không?", "acceptedAnswer": { "@type": "Answer", "text": "Mỗi profile có vân tay trình duyệt riêng + proxy riêng nên các gian hàng tách biệt như những thiết bị độc lập. Hành vi được mô phỏng như người thật. Bạn vẫn nên chạy với tần suất hợp lý để an toàn tối đa." } },
+          { "@type": "Question", "name": "Tool cài được trên mấy máy?", "acceptedAnswer": { "@type": "Answer", "text": "Bản quyền cấp theo license. Chi tiết số thiết bị của từng gói vui lòng liên hệ Zalo để được tư vấn chính xác." } },
+          { "@type": "Question", "name": "Hỗ trợ những loại proxy nào?", "acceptedAnswer": { "@type": "Answer", "text": "Hỗ trợ proxy HTTP/SOCKS gán sẵn và xoay IP tự động qua API của KiotProxy, 1IP.VN. Bạn có thể dùng proxy của mình hoặc mua thêm dịch vụ proxy." } },
+          { "@type": "Question", "name": "Chạy được trên Windows hay Mac?", "acceptedAnswer": { "@type": "Answer", "text": "Phần mềm tối ưu cho Windows. Vui lòng liên hệ Zalo để kiểm tra cấu hình máy của bạn trước khi mua." } },
+          { "@type": "Question", "name": "Cập nhật phiên bản mới có tốn phí không?", "acceptedAnswer": { "@type": "Answer", "text": "Gói vĩnh viễn được update trọn đời miễn phí. Các gói theo thời hạn được cập nhật miễn phí trong thời gian còn hiệu lực." } },
+          { "@type": "Question", "name": "Mua xong có được hướng dẫn cài đặt không?", "acceptedAnswer": { "@type": "Answer", "text": "Có. Sau khi mua bạn được hỗ trợ cài đặt và hướng dẫn sử dụng qua Zalo, và tham gia nhóm Zalo hỗ trợ chung." } }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body class="font-sans text-ink-700 antialiased bg-white">
+
+  <!-- ====================================================== -->
+  <!-- HEADER (sticky, glass)                                  -->
+  <!-- ====================================================== -->
+  <header id="site-header" class="fixed inset-x-0 top-0 z-50 transition-all duration-300">
+    <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
+      <!-- Logo -->
+      <a href="#hero" class="flex items-center gap-2.5">
+        <img src="assets/img/logo.png" alt="WantSeoShopee" class="h-9 w-9 object-contain" />
+        <span class="text-lg font-extrabold tracking-tight text-ink-900">Want<span class="text-primary-600">SeoShopee</span></span>
+      </a>
+
+      <!-- Nav (desktop) -->
+      <nav class="hidden items-center gap-1 lg:flex">
+        <a href="#features" class="nav-link">Tính năng</a>
+        <a href="#how" class="nav-link">Cách hoạt động</a>
+        <a href="#demo" class="nav-link">Demo</a>
+        <a href="#pricing" class="nav-link">Bảng giá</a>
+        <a href="#faq" class="nav-link">Hỏi đáp</a>
+        <a href="#contact" class="nav-link">Liên hệ</a>
+      </nav>
+
+      <div class="flex items-center gap-2">
+        <a href="#pricing" class="btn btn-primary hidden sm:inline-flex">
+          <i data-lucide="zap" class="h-4 w-4"></i> Mua ngay
+        </a>
+        <!-- Hamburger (mobile) -->
+        <button id="nav-toggle" aria-label="Mở menu" class="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-ink-200 bg-white/80 text-ink-700 lg:hidden">
+          <i data-lucide="menu" class="h-5 w-5"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="mx-3 hidden origin-top rounded-2xl border border-ink-100 bg-white p-2 shadow-xl lg:hidden">
+      <a href="#features" class="mobile-link">Tính năng</a>
+      <a href="#how" class="mobile-link">Cách hoạt động</a>
+      <a href="#demo" class="mobile-link">Demo</a>
+      <a href="#pricing" class="mobile-link">Bảng giá</a>
+      <a href="#faq" class="mobile-link">Hỏi đáp</a>
+      <a href="#contact" class="mobile-link">Liên hệ</a>
+      <a href="#pricing" class="btn btn-primary mt-1 w-full">Mua ngay</a>
+    </div>
+  </header>
+
+  <!-- ====================================================== -->
+  <!-- HERO                                                    -->
+  <!-- ====================================================== -->
+  <section id="hero" class="relative overflow-hidden pt-28 pb-20 sm:pt-32 lg:pt-36">
+    <!-- Background glow -->
+    <div class="hero-glow"></div>
+    <div class="pointer-events-none absolute inset-0 bg-grid"></div>
+
+    <div class="relative mx-auto grid max-w-6xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2">
+      <!-- Copy -->
+      <div class="reveal">
+        <span class="eyebrow">
+          <i data-lucide="sparkles" class="h-3.5 w-3.5"></i> Phiên bản WantSeoShopee V2.1 PRO
+        </span>
+        <h1 class="mt-5 text-4xl font-extrabold leading-[1.15] tracking-tight text-ink-900 sm:text-5xl lg:text-[3.4rem]">
+          Giải pháp SEO Shopee.<br />
+          <span class="gradient-text">Tự động hoá đỉnh cao.</span>
+        </h1>
+        <p class="mt-5 max-w-xl text-[15px] leading-relaxed text-ink-500 sm:text-base">
+          Nâng tầm gian hàng với hệ thống <b class="text-ink-700">nuôi tài khoản số lượng lớn</b>, tự động hoá tương tác và
+          <b class="text-ink-700">cày SEO từ khoá mô phỏng người thật</b> — an toàn, ổn định, chống quét vân tay trình duyệt.
+        </p>
+
+        <div class="mt-7 flex flex-wrap items-center gap-3">
+          <a href="#contact" class="btn btn-zalo">
+            <i data-lucide="message-circle" class="h-5 w-5"></i> Nhận tư vấn qua Zalo
+          </a>
+          <a href="#demo" class="btn btn-outline">
+            <i data-lucide="play" class="h-4 w-4"></i> Xem demo
+          </a>
+        </div>
+
+        <!-- Trust chips -->
+        <div class="mt-8 flex flex-wrap gap-2.5">
+          <span class="chip"><i data-lucide="shield-check" class="h-4 w-4 text-emerald-500"></i> Ổn định tuyệt đối</span>
+          <span class="chip"><i data-lucide="rocket" class="h-4 w-4 text-amber-500"></i> Tăng traffic tự nhiên</span>
+          <span class="chip"><i data-lucide="check-circle-2" class="h-4 w-4 text-primary-500"></i> Đẩy sản phẩm auto</span>
+        </div>
+      </div>
+
+      <!-- Hero mockup: cửa sổ app WantSeoShopee -->
+      <div class="reveal" style="--reveal-delay: 120ms">
+        <div class="mockup-window float-slow">
+          <div class="mockup-bar">
+            <span class="mockup-dot bg-[#ff5f57]"></span>
+            <span class="mockup-dot bg-[#febc2e]"></span>
+            <span class="mockup-dot bg-[#28c840]"></span>
+            <span class="ml-3 text-[11px] font-semibold text-ink-400">WantSeoShopee — Profile Manager</span>
+          </div>
+          <div class="flex bg-ink-50 text-[11px]">
+            <!-- Sidebar -->
+            <aside class="hidden w-36 shrink-0 border-r border-ink-100 bg-white/70 p-2 sm:block">
+              <div class="px-2 pb-2 text-[13px] font-extrabold text-primary-600">WantSeoShopee</div>
+              <div class="mock-nav mock-nav--active"><i data-lucide="folder" class="h-3.5 w-3.5"></i> Hồ sơ</div>
+              <div class="mock-nav"><i data-lucide="folder-closed" class="h-3.5 w-3.5"></i> Nhóm</div>
+              <div class="mock-nav"><i data-lucide="globe" class="h-3.5 w-3.5"></i> Proxy</div>
+              <div class="mock-nav"><i data-lucide="settings" class="h-3.5 w-3.5"></i> Kịch bản</div>
+              <div class="mock-nav"><i data-lucide="puzzle" class="h-3.5 w-3.5"></i> Tiện ích</div>
+            </aside>
+            <!-- Content -->
+            <div class="min-w-0 flex-1 p-3">
+              <div class="mb-2.5 flex items-center justify-between gap-2">
+                <div class="flex items-center gap-1.5 rounded-lg border border-ink-200 bg-white px-2 py-1 text-ink-400">
+                  <i data-lucide="search" class="h-3 w-3"></i> Tìm hồ sơ…
+                </div>
+                <div class="inline-flex items-center gap-1 rounded-lg bg-primary-600 px-2 py-1 font-semibold text-white">
+                  <i data-lucide="plus" class="h-3 w-3"></i> Tạo hồ sơ
+                </div>
+              </div>
+              <table class="w-full border-collapse text-left">
+                <thead>
+                  <tr class="text-[10px] uppercase tracking-wide text-ink-400">
+                    <th class="py-1 font-semibold">Tên hồ sơ</th>
+                    <th class="py-1 font-semibold">Trạng thái</th>
+                    <th class="hidden py-1 font-semibold sm:table-cell">Proxy</th>
+                    <th class="py-1 text-right font-semibold"></th>
+                  </tr>
+                </thead>
+                <tbody class="text-ink-600">
+                  <!-- Hàng demo -->
+                  <tr class="border-t border-ink-100"><td class="py-1.5 font-medium">Shopee_Shop_01</td><td><span class="mock-badge mock-badge--run">● Đang chạy</span></td><td class="hidden sm:table-cell">🇻🇳 113.161…</td><td class="text-right text-primary-600">Mở</td></tr>
+                  <tr class="border-t border-ink-100"><td class="py-1.5 font-medium">Shopee_Shop_02</td><td><span class="mock-badge mock-badge--run">● Đang chạy</span></td><td class="hidden sm:table-cell">🇻🇳 14.241…</td><td class="text-right text-primary-600">Mở</td></tr>
+                  <tr class="border-t border-ink-100"><td class="py-1.5 font-medium">Nick_SEO_aothun</td><td><span class="mock-badge mock-badge--queue">● Đang chờ</span></td><td class="hidden sm:table-cell">🇻🇳 27.72…</td><td class="text-right text-primary-600">Mở</td></tr>
+                  <tr class="border-t border-ink-100"><td class="py-1.5 font-medium">Nick_SEO_giaydep</td><td><span class="mock-badge mock-badge--off">● Tắt</span></td><td class="hidden sm:table-cell">🇻🇳 42.116…</td><td class="text-right text-primary-600">Mở</td></tr>
+                  <tr class="border-t border-ink-100"><td class="py-1.5 font-medium">Buff_Tuongtac_05</td><td><span class="mock-badge mock-badge--run">● Đang chạy</span></td><td class="hidden sm:table-cell">🇻🇳 171.244…</td><td class="text-right text-primary-600">Mở</td></tr>
+                </tbody>
+              </table>
+              <div class="mt-2.5 flex items-center justify-between text-[10px] text-ink-400">
+                <span>5 / 248 hồ sơ</span>
+                <span class="inline-flex items-center gap-1 font-semibold text-emerald-600"><i data-lucide="activity" class="h-3 w-3"></i> 12 luồng đang chạy</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================== -->
+  <!-- STATS                                                   -->
+  <!-- ====================================================== -->
+  <section class="relative border-y border-ink-100 bg-ink-50/60">
+    <div class="mx-auto grid max-w-6xl grid-cols-2 gap-6 px-4 py-10 sm:px-6 lg:grid-cols-4">
+      <div class="reveal text-center">
+        <div class="stat-num">100+</div>
+        <div class="stat-label">Profile chạy song song</div>
+      </div>
+      <div class="reveal text-center" style="--reveal-delay: 80ms">
+        <div class="stat-num">24/7</div>
+        <div class="stat-label">Hỗ trợ qua Zalo</div>
+      </div>
+      <div class="reveal text-center" style="--reveal-delay: 160ms">
+        <div class="stat-num">∞</div>
+        <div class="stat-label">Update trọn đời</div>
+      </div>
+      <div class="reveal text-center" style="--reveal-delay: 240ms">
+        <div class="stat-num">99.9%</div>
+        <div class="stat-label">Mô phỏng người thật</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================== -->
+  <!-- PROBLEM -> SOLUTION                                     -->
+  <!-- ====================================================== -->
+  <section class="section">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <div class="mx-auto max-w-2xl text-center reveal">
+        <span class="eyebrow eyebrow--soft"><i data-lucide="alert-triangle" class="h-3.5 w-3.5"></i> Vì sao bạn cần WantSeoShopee?</span>
+        <h2 class="section-title">Làm SEO Shopee thủ công vừa <span class="text-rose-500">mệt</span>, vừa <span class="text-rose-500">dễ bay acc</span></h2>
+        <p class="section-sub">Tự đăng nhập nhiều nick trên một máy khiến Shopee phát hiện trùng vân tay, hạn chế hiển thị, thậm chí khoá tài khoản. WantSeoShopee xử lý gọn cả ba.</p>
+      </div>
+
+      <div class="mt-12 grid gap-5 lg:grid-cols-3">
+        <div class="reveal solution-card">
+          <div class="feature-icon bg-orange-50 text-orange-600"><i data-lucide="fingerprint" class="h-5 w-5"></i></div>
+          <h3 class="solution-title">Chống trùng vân tay</h3>
+          <p class="solution-desc">Mỗi gian hàng là một profile độc lập với vân tay trình duyệt riêng (WebGL, WebRTC, Canvas, Font, Timezone) — tách biệt hoàn toàn, bảo vệ quyền riêng tư cho từng tài khoản.</p>
+        </div>
+        <div class="reveal solution-card" style="--reveal-delay: 100ms">
+          <div class="feature-icon bg-emerald-50 text-emerald-600"><i data-lucide="zap" class="h-5 w-5"></i></div>
+          <h3 class="solution-title">Hết thao tác tay</h3>
+          <p class="solution-desc">Kịch bản tự tìm từ khoá, xem sản phẩm, đọc đánh giá, thả tim, thêm giỏ, theo dõi shop… mô phỏng đúng hành vi người dùng để đẩy SEO tự nhiên.</p>
+        </div>
+        <div class="reveal solution-card" style="--reveal-delay: 200ms">
+          <div class="feature-icon bg-violet-50 text-violet-600"><i data-lucide="globe-2" class="h-5 w-5"></i></div>
+          <h3 class="solution-title">IP sạch, xoay tự động</h3>
+          <p class="solution-desc">Tích hợp sẵn KiotProxy & 1IP.VN: tự gán proxy, đổi IP mượt cho từng phiên, phân tán IP đều và tự nhiên hơn.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================== -->
+  <!-- FEATURES GRID                                           -->
+  <!-- ====================================================== -->
+  <section id="features" class="section bg-ink-50/60 border-y border-ink-100">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <div class="mx-auto max-w-2xl text-center reveal">
+        <span class="eyebrow eyebrow--soft"><i data-lucide="layout-grid" class="h-3.5 w-3.5"></i> Tính năng nổi bật</span>
+        <h2 class="section-title">Mọi thứ để <span class="gradient-text">bùng nổ gian hàng</span> trong một phần mềm</h2>
+        <p class="section-sub">Được xây riêng cho người bán Shopee Việt Nam — trực quan, nhẹ máy, an toàn.</p>
+      </div>
+
+      <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <!-- 1 -->
+        <article class="reveal feature-card">
+          <div class="feature-icon bg-primary-50 text-primary-600"><i data-lucide="store" class="h-5 w-5"></i></div>
+          <h3 class="feature-title">Quản lý trăm acc Shopee</h3>
+          <p class="feature-desc">Tạo & vận hành hàng trăm profile chống vân tay, quản lý cookie và đăng nhập sẵn. Khoanh vùng an toàn cho từng gian hàng.</p>
+        </article>
+        <!-- 2 -->
+        <article class="reveal feature-card" style="--reveal-delay: 80ms">
+          <div class="feature-icon bg-emerald-50 text-emerald-600"><i data-lucide="target" class="h-5 w-5"></i></div>
+          <h3 class="feature-title">Kịch bản SEO chuyên sâu</h3>
+          <p class="feature-desc">Tìm từ khoá, lọc theo giá/vị trí, xem sản phẩm đối thủ, đọc & like đánh giá, hứng voucher, chat shop… cấu hình theo tỉ lệ %.</p>
+        </article>
+        <!-- 3 -->
+        <article class="reveal feature-card" style="--reveal-delay: 160ms">
+          <div class="feature-icon bg-violet-50 text-violet-600"><i data-lucide="globe" class="h-5 w-5"></i></div>
+          <h3 class="feature-title">Xoay IP & Proxy auto</h3>
+          <p class="feature-desc">Tích hợp sâu API KiotProxy, 1IP.VN. Tự gán proxy, đổi IP theo phiên; hỗ trợ HTTP/SOCKS, proxy gán sẵn hoặc xoay động.</p>
+        </article>
+        <!-- 4 -->
+        <article class="reveal feature-card" style="--reveal-delay: 0ms">
+          <div class="feature-icon bg-rose-50 text-rose-600"><i data-lucide="mouse-pointer-click" class="h-5 w-5"></i></div>
+          <h3 class="feature-title">Mô phỏng người thật</h3>
+          <p class="feature-desc">Di chuột theo quỹ đạo tự nhiên, cuộn trang, nghỉ ngẫu nhiên giữa các thao tác và mô phỏng tỉ lệ thoát (bounce) như khách thật — chân thực, mượt mà.</p>
+        </article>
+        <!-- 5 -->
+        <article class="reveal feature-card" style="--reveal-delay: 80ms">
+          <div class="feature-icon bg-amber-50 text-amber-600"><i data-lucide="layers" class="h-5 w-5"></i></div>
+          <h3 class="feature-title">Nhóm, tiện ích & đa luồng</h3>
+          <p class="feature-desc">Sắp xếp profile theo nhóm, cài extension hàng loạt, chạy nhiều tab cùng lúc với cơ chế hàng chờ tối ưu RAM cực nhẹ.</p>
+        </article>
+        <!-- 6 -->
+        <article class="reveal feature-card" style="--reveal-delay: 160ms">
+          <div class="feature-icon bg-sky-50 text-sky-600"><i data-lucide="shield-check" class="h-5 w-5"></i></div>
+          <h3 class="feature-title">Bảo mật & ẩn danh đa lớp</h3>
+          <p class="feature-desc">Lõi Chromium luôn cập nhật mới nhất; mỗi profile có vân tay riêng (WebGL/WebRTC/Canvas, cookies độc lập) giúp bảo vệ quyền riêng tư và giữ các gian hàng tách biệt, an toàn. Bản quyền vĩnh viễn + update trọn đời.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================== -->
+  <!-- HOW IT WORKS                                            -->
+  <!-- ====================================================== -->
+  <section id="how" class="section">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <div class="mx-auto max-w-2xl text-center reveal">
+        <span class="eyebrow eyebrow--soft"><i data-lucide="route" class="h-3.5 w-3.5"></i> Cách hoạt động</span>
+        <h2 class="section-title">Chạy chiến dịch SEO chỉ với <span class="gradient-text">4 bước</span></h2>
+      </div>
+
+      <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="reveal step-card">
+          <div class="step-num">1</div>
+          <div class="feature-icon bg-primary-50 text-primary-600 mt-4"><i data-lucide="user-plus" class="h-5 w-5"></i></div>
+          <h3 class="step-title">Tạo profile</h3>
+          <p class="step-desc">Sinh hàng loạt hồ sơ chống vân tay, gắn cookie/nick Shopee sẵn có.</p>
+        </div>
+        <div class="reveal step-card" style="--reveal-delay: 100ms">
+          <div class="step-num">2</div>
+          <div class="feature-icon bg-emerald-50 text-emerald-600 mt-4"><i data-lucide="sliders-horizontal" class="h-5 w-5"></i></div>
+          <h3 class="step-title">Cấu hình kịch bản</h3>
+          <p class="step-desc">Nhập từ khoá, sản phẩm mục tiêu, chọn tỉ lệ tương tác mong muốn.</p>
+        </div>
+        <div class="reveal step-card" style="--reveal-delay: 200ms">
+          <div class="step-num">3</div>
+          <div class="feature-icon bg-violet-50 text-violet-600 mt-4"><i data-lucide="globe" class="h-5 w-5"></i></div>
+          <h3 class="step-title">Gán proxy</h3>
+          <p class="step-desc">Chọn proxy gán sẵn hoặc bật xoay IP tự động qua API.</p>
+        </div>
+        <div class="reveal step-card" style="--reveal-delay: 300ms">
+          <div class="step-num">4</div>
+          <div class="feature-icon bg-amber-50 text-amber-600 mt-4"><i data-lucide="play-circle" class="h-5 w-5"></i></div>
+          <h3 class="step-title">Chạy & theo dõi</h3>
+          <p class="step-desc">Khởi chạy hàng loạt, theo dõi trạng thái từng luồng theo thời gian thực.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================== -->
+  <!-- SEO SCRIPT SHOWCASE (điểm khác biệt)                    -->
+  <!-- ====================================================== -->
+  <section class="section bg-gradient-to-b from-ink-50/60 to-white border-t border-ink-100">
+    <div class="mx-auto grid max-w-6xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2">
+      <div class="reveal order-2 lg:order-1">
+        <span class="eyebrow eyebrow--soft"><i data-lucide="target" class="h-3.5 w-3.5"></i> Kịch bản SEO trực quan</span>
+        <h2 class="section-title text-left">Tinh chỉnh <span class="gradient-text">từng hành vi</span> đến từng %</h2>
+        <p class="section-sub text-left">Bạn toàn quyền quyết định kịch bản "hành xử" ra sao: bao nhiêu % đọc đánh giá, bao nhiêu % thêm giỏ hàng, có chat shop không, nghỉ giữa các thao tác bao lâu… Mọi thứ giống hệt khách thật.</p>
+        <ul class="mt-6 space-y-3">
+          <li class="ticked"><i data-lucide="check" class="h-4 w-4"></i> <b>Mục tiêu:</b> theo từ khoá / sản phẩm / shop, lọc giá &amp; vị trí.</li>
+          <li class="ticked"><i data-lucide="check" class="h-4 w-4"></i> <b>Hành vi:</b> xem đối thủ, tỉ lệ thoát, số trang tìm kiếm.</li>
+          <li class="ticked"><i data-lucide="check" class="h-4 w-4"></i> <b>Tương tác:</b> đọc/like đánh giá, hứng voucher, chat shop.</li>
+          <li class="ticked"><i data-lucide="check" class="h-4 w-4"></i> <b>Hành động:</b> thả tim, theo dõi shop, thêm vào giỏ hàng.</li>
+        </ul>
+      </div>
+
+      <!-- Mockup script builder -->
+      <div class="reveal order-1 lg:order-2" style="--reveal-delay: 120ms">
+        <div class="mockup-window">
+          <div class="mockup-bar">
+            <span class="mockup-dot bg-[#ff5f57]"></span>
+            <span class="mockup-dot bg-[#febc2e]"></span>
+            <span class="mockup-dot bg-[#28c840]"></span>
+            <span class="ml-3 text-[11px] font-semibold text-ink-400">Kịch bản SEO — áo thun nam</span>
+          </div>
+          <div class="space-y-3 bg-ink-50 p-4 text-[12px]">
+            <!-- Mục tiêu -->
+            <div class="script-panel">
+              <div class="script-panel-head"><i data-lucide="target" class="h-3.5 w-3.5 text-primary-600"></i> Mục tiêu</div>
+              <div class="mt-2 grid grid-cols-2 gap-2">
+                <div class="script-input">Từ khoá: <b>áo thun nam</b></div>
+                <div class="script-input">Sản phẩm: <b>#84213…</b></div>
+                <div class="script-input">Giá: <b>120k–300k</b></div>
+                <div class="script-input">Số trang tìm: <b>5</b></div>
+              </div>
+            </div>
+            <!-- Tương tác -->
+            <div class="script-panel">
+              <div class="script-panel-head"><i data-lucide="heart" class="h-3.5 w-3.5 text-rose-500"></i> Tương tác</div>
+              <div class="mt-2 space-y-2">
+                <div class="script-row"><span>Đọc đánh giá</span><span class="script-pct">100%</span></div>
+                <div class="script-row"><span>Hứng voucher</span><span class="script-pct">100%</span></div>
+                <div class="script-row"><span>Chat với shop</span><span class="script-pct script-pct--soft">30%</span></div>
+              </div>
+            </div>
+            <!-- Hành động -->
+            <div class="script-panel">
+              <div class="script-panel-head"><i data-lucide="mouse-pointer-click" class="h-3.5 w-3.5 text-emerald-600"></i> Hành động</div>
+              <div class="mt-2 flex flex-wrap gap-2">
+                <span class="toggle toggle--on">Thả tim · 100%</span>
+                <span class="toggle toggle--on">Theo dõi shop</span>
+                <span class="toggle">Thêm giỏ hàng</span>
+              </div>
+            </div>
+            <div class="flex justify-end">
+              <span class="inline-flex items-center gap-1 rounded-lg bg-primary-600 px-3 py-1.5 font-semibold text-white"><i data-lucide="save" class="h-3.5 w-3.5"></i> Lưu kịch bản</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================== -->
+  <!-- DEMO (YouTube facade)                                   -->
+  <!-- ====================================================== -->
+  <section id="demo" class="section">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6">
+      <div class="mx-auto max-w-2xl text-center reveal">
+        <span class="eyebrow eyebrow--soft"><i data-lucide="play" class="h-3.5 w-3.5"></i> Xem tận mắt</span>
+        <h2 class="section-title">Demo WantSeoShopee chạy thực tế</h2>
+        <p class="section-sub">Toàn bộ quy trình tạo profile, cấu hình kịch bản và chạy SEO hàng loạt trong vài phút.</p>
+      </div>
+
+      <!-- Video demo: đổi data-video-id nếu muốn thay video khác -->
+      <div class="reveal mt-10">
+        <div id="demo-video" class="video-facade" data-video-id="ahOOBbWNofM" role="button" tabindex="0" aria-label="Phát video demo">
+          <div class="video-poster">
+            <div class="video-play"><i data-lucide="play" class="h-8 w-8"></i></div>
+            <p class="mt-4 text-sm font-semibold text-white/90">Bấm để xem demo</p>
+            <p class="mt-1 text-xs text-white/60">Phần mềm SEO Shopee — Auto nuôi tài khoản, tăng tương tác</p>
+          </div>
+        </div>
+        <p class="mt-4 text-center text-sm text-ink-500">
+          Không xem được video?
+          <a href="https://www.youtube.com/watch?v=ahOOBbWNofM" target="_blank" rel="noopener" class="font-semibold text-primary-600 hover:underline">Mở trên YouTube ↗</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================== -->
+  <!-- PRICING                                                 -->
+  <!-- ====================================================== -->
+  <!-- TODO(user): SỬA GIÁ & nội dung gói ở 3 thẻ bên dưới cho đúng thực tế -->
+  <section id="pricing" class="section bg-ink-50/60 border-y border-ink-100">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <div class="mx-auto max-w-2xl text-center reveal">
+        <span class="eyebrow eyebrow--soft"><i data-lucide="tag" class="h-3.5 w-3.5"></i> Bảng giá</span>
+        <h2 class="section-title">Chọn gói phù hợp với bạn</h2>
+        <p class="section-sub">Bản quyền minh bạch, hỗ trợ cài đặt tận tình. <span class="font-semibold text-amber-600">* Giá dưới đây là giá mẫu</span> — vui lòng liên hệ Zalo để nhận báo giá &amp; ưu đãi mới nhất.</p>
+      </div>
+
+      <div class="mt-12 grid items-stretch gap-6 lg:grid-cols-3">
+        <!-- Gói 1 tháng -->
+        <div class="reveal price-card">
+          <h3 class="price-name">Gói 1 Tháng</h3>
+          <p class="price-tag"><span class="price-amount">500K</span><span class="price-period">/tháng</span></p>
+          <p class="price-note">Trải nghiệm đầy đủ tính năng, dùng thử trước khi gắn bó lâu dài.</p>
+          <ul class="price-list">
+            <li><i data-lucide="check" class="h-4 w-4"></i> Không giới hạn số profile</li>
+            <li><i data-lucide="check" class="h-4 w-4"></i> Kịch bản SEO đầy đủ</li>
+            <li><i data-lucide="check" class="h-4 w-4"></i> Tích hợp proxy KiotProxy / 1IP.VN</li>
+            <li><i data-lucide="check" class="h-4 w-4"></i> Hỗ trợ qua Zalo</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline mt-6 w-full">Chọn gói này</a>
+        </div>
+
+        <!-- Gói 1 năm (popular) -->
+        <div class="reveal price-card price-card--popular" style="--reveal-delay: 100ms">
+          <span class="price-badge">Phổ biến nhất</span>
+          <h3 class="price-name">Gói 1 Năm</h3>
+          <p class="price-tag"><span class="price-amount">2.500K</span><span class="price-period">/năm</span></p>
+          <p class="price-note">Tiết kiệm hơn 50% so với trả theo tháng. Lựa chọn của đa số shop.</p>
+          <ul class="price-list">
+            <li><i data-lucide="check" class="h-4 w-4"></i> Tất cả quyền lợi gói tháng</li>
+            <li><i data-lucide="check" class="h-4 w-4"></i> Ưu tiên hỗ trợ kỹ thuật</li>
+            <li><i data-lucide="check" class="h-4 w-4"></i> Cập nhật phiên bản miễn phí</li>
+            <li><i data-lucide="check" class="h-4 w-4"></i> Tặng buổi hướng dẫn cài đặt</li>
+          </ul>
+          <a href="#contact" class="btn btn-primary mt-6 w-full">Mua gói 1 năm</a>
+        </div>
+
+        <!-- Gói vĩnh viễn -->
+        <div class="reveal price-card" style="--reveal-delay: 200ms">
+          <h3 class="price-name">Gói Vĩnh Viễn</h3>
+          <p class="price-tag"><span class="price-amount">5.000K</span><span class="price-period">/trọn đời</span></p>
+          <p class="price-note">Mua một lần, dùng mãi mãi. Đầu tư xứng đáng cho dân bán chuyên.</p>
+          <ul class="price-list">
+            <li><i data-lucide="check" class="h-4 w-4"></i> Bản quyền vĩnh viễn</li>
+            <li><i data-lucide="check" class="h-4 w-4"></i> <b>Update trọn đời miễn phí</b></li>
+            <li><i data-lucide="check" class="h-4 w-4"></i> Hỗ trợ ưu tiên cao nhất</li>
+            <li><i data-lucide="check" class="h-4 w-4"></i> Vào nhóm Zalo VIP</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline mt-6 w-full">Sở hữu trọn đời</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================== -->
+  <!-- FAQ                                                     -->
+  <!-- ====================================================== -->
+  <section id="faq" class="section">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6">
+      <div class="text-center reveal">
+        <span class="eyebrow eyebrow--soft"><i data-lucide="help-circle" class="h-3.5 w-3.5"></i> Hỏi đáp</span>
+        <h2 class="section-title">Câu hỏi thường gặp</h2>
+      </div>
+
+      <div class="mt-10 space-y-3">
+        <div class="reveal faq-item">
+          <button class="faq-q">Dùng tool có bị Shopee khoá tài khoản không?<i data-lucide="chevron-down" class="faq-chevron h-5 w-5"></i></button>
+          <div class="faq-a"><p>Mỗi profile có vân tay trình duyệt riêng + proxy riêng nên các gian hàng tách biệt như những thiết bị độc lập. Hành vi được mô phỏng như người thật (nghỉ ngẫu nhiên, cuộn trang, tỉ lệ thao tác). Bạn vẫn nên chạy với tần suất hợp lý để an toàn tối đa.</p></div>
+        </div>
+        <div class="reveal faq-item">
+          <button class="faq-q">Tool cài được trên mấy máy?<i data-lucide="chevron-down" class="faq-chevron h-5 w-5"></i></button>
+          <div class="faq-a"><p>Bản quyền cấp theo license. Chi tiết số thiết bị của từng gói vui lòng liên hệ Zalo để được tư vấn chính xác.</p></div>
+        </div>
+        <div class="reveal faq-item">
+          <button class="faq-q">Hỗ trợ những loại proxy nào?<i data-lucide="chevron-down" class="faq-chevron h-5 w-5"></i></button>
+          <div class="faq-a"><p>Hỗ trợ proxy HTTP/SOCKS gán sẵn và xoay IP tự động qua API của KiotProxy, 1IP.VN. Bạn có thể dùng proxy của mình hoặc mua thêm dịch vụ proxy.</p></div>
+        </div>
+        <div class="reveal faq-item">
+          <button class="faq-q">Chạy được trên Windows hay Mac?<i data-lucide="chevron-down" class="faq-chevron h-5 w-5"></i></button>
+          <div class="faq-a"><p>Phần mềm tối ưu cho Windows. Vui lòng liên hệ Zalo để kiểm tra cấu hình máy của bạn trước khi mua.</p></div>
+        </div>
+        <div class="reveal faq-item">
+          <button class="faq-q">Cập nhật phiên bản mới có tốn phí không?<i data-lucide="chevron-down" class="faq-chevron h-5 w-5"></i></button>
+          <div class="faq-a"><p>Gói vĩnh viễn được update trọn đời miễn phí. Các gói theo thời hạn được cập nhật miễn phí trong thời gian còn hiệu lực.</p></div>
+        </div>
+        <div class="reveal faq-item">
+          <button class="faq-q">Mua xong có được hướng dẫn cài đặt không?<i data-lucide="chevron-down" class="faq-chevron h-5 w-5"></i></button>
+          <div class="faq-a"><p>Có. Sau khi mua bạn được hỗ trợ cài đặt &amp; hướng dẫn sử dụng qua Zalo, và tham gia nhóm Zalo hỗ trợ chung.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================== -->
+  <!-- CONTACT / ZALO CTA                                      -->
+  <!-- ====================================================== -->
+  <section id="contact" class="section">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6">
+      <div class="cta-card reveal">
+        <div class="cta-glow"></div>
+        <div class="relative z-10 grid items-center gap-8 lg:grid-cols-[1.2fr_1fr]">
+          <div>
+            <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl">Sẵn sàng bùng nổ doanh số?</h2>
+            <p class="mt-3 max-w-lg text-[15px] leading-relaxed text-white/80">
+              Nhắn Zalo để được tư vấn gói phù hợp, nhận báo giá &amp; ưu đãi mới nhất. Mua xong vào ngay nhóm Zalo để được hỗ trợ cài đặt và đồng hành lâu dài.
+            </p>
+
+            <div class="mt-7 flex flex-wrap gap-3">
+              <!-- Zalo cá nhân 1 -->
+              <a href="https://zalo.me/0774150125" target="_blank" rel="noopener" class="btn btn-zalo">
+                <i data-lucide="message-circle" class="h-5 w-5"></i> Zalo 0774.150.125
+              </a>
+              <!-- Zalo cá nhân 2 -->
+              <a href="https://zalo.me/0963354832" target="_blank" rel="noopener" class="btn btn-zalo">
+                <i data-lucide="message-circle" class="h-5 w-5"></i> Zalo 0963.354.832
+              </a>
+            </div>
+
+            <!-- TODO(user): thay link nhóm Zalo thật (vd https://zalo.me/g/abcxyz) -->
+            <div class="mt-3 flex flex-wrap gap-3">
+              <a href="https://zalo.me/g/xxxxxx" target="_blank" rel="noopener" class="btn btn-glass">
+                <i data-lucide="users" class="h-5 w-5"></i> Tham gia nhóm Zalo hỗ trợ
+              </a>
+              <a href="https://acchoanglong.com" target="_blank" rel="noopener" class="btn btn-glass">
+                <i data-lucide="globe" class="h-5 w-5"></i> acchoanglong.com
+              </a>
+            </div>
+          </div>
+
+          <!-- Contact card -->
+          <div class="contact-info">
+            <div class="contact-row">
+              <div class="contact-ic"><i data-lucide="phone" class="h-4 w-4"></i></div>
+              <div>
+                <div class="contact-label">Tổng đài Zalo</div>
+                <div class="contact-value">0774.150.125 — 0963.354.832</div>
+              </div>
+            </div>
+            <div class="contact-row">
+              <div class="contact-ic"><i data-lucide="monitor-smartphone" class="h-4 w-4"></i></div>
+              <div>
+                <div class="contact-label">Website</div>
+                <div class="contact-value">acchoanglong.com</div>
+              </div>
+            </div>
+            <div class="contact-row">
+              <div class="contact-ic"><i data-lucide="badge-check" class="h-4 w-4"></i></div>
+              <div>
+                <div class="contact-label">Cam kết</div>
+                <div class="contact-value">Bản quyền thật · Update trọn đời</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================== -->
+  <!-- FOOTER                                                  -->
+  <!-- ====================================================== -->
+  <footer class="border-t border-ink-100 bg-ink-50/60">
+    <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+      <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="lg:col-span-2">
+          <div class="flex items-center gap-2.5">
+            <img src="assets/img/logo.png" alt="WantSeoShopee" class="h-9 w-9 object-contain" />
+            <span class="text-lg font-extrabold tracking-tight text-ink-900">Want<span class="text-primary-600">SeoShopee</span></span>
+          </div>
+          <p class="mt-4 max-w-sm text-sm leading-relaxed text-ink-500">
+            Phần mềm tự động hoá SEO Shopee &amp; quản lý anti-detect browser. Một sản phẩm được thiết kế bằng khát vọng số hoá.
+          </p>
+        </div>
+        <div>
+          <div class="footer-head">Điều hướng</div>
+          <a href="#features" class="footer-link">Tính năng</a>
+          <a href="#how" class="footer-link">Cách hoạt động</a>
+          <a href="#demo" class="footer-link">Demo</a>
+          <a href="#pricing" class="footer-link">Bảng giá</a>
+        </div>
+        <div>
+          <div class="footer-head">Liên hệ</div>
+          <a href="https://zalo.me/0774150125" target="_blank" rel="noopener" class="footer-link">Zalo 0774.150.125</a>
+          <a href="https://zalo.me/0963354832" target="_blank" rel="noopener" class="footer-link">Zalo 0963.354.832</a>
+          <a href="https://acchoanglong.com" target="_blank" rel="noopener" class="footer-link">acchoanglong.com</a>
+        </div>
+      </div>
+      <div class="mt-10 border-t border-ink-200/60 pt-6 text-center text-[13px] text-ink-400">
+        © 2026 WantSeoShopee. Đã đăng ký bản quyền. Sản phẩm dành cho mục đích marketing hợp pháp.
+      </div>
+    </div>
+  </footer>
+
+  <!-- ====================================================== -->
+  <!-- FLOATING BUTTONS                                        -->
+  <!-- ====================================================== -->
+  <a href="https://zalo.me/0774150125" target="_blank" rel="noopener" class="float-zalo" aria-label="Chat Zalo">
+    <i data-lucide="message-circle" class="h-6 w-6"></i>
+    <span class="float-zalo-ping"></span>
+  </a>
+  <button id="to-top" class="to-top" aria-label="Lên đầu trang"><i data-lucide="arrow-up" class="h-5 w-5"></i></button>
+
+  <!-- ====================================================== -->
+  <!-- SCRIPTS (classic, chạy được cả khi mở bằng file://)     -->
+  <!-- ====================================================== -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/scroll-reveal.js"></script>
+  <script src="js/faq-accordion.js"></script>
+  <script src="js/video-facade.js"></script>
+</body>
+</html>

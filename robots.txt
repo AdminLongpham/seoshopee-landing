@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# TODO(user): đổi domain bên dưới cho khớp domain thật
+Sitemap: https://acchoanglong.com/sitemap.xml

@@ -1,0 +1,45 @@
+/* =========================================================
+   WantSeoShopee — Animations
+   Scroll reveal, floating mockup, Zalo ping.
+   ========================================================= */
+
+/* ---- Scroll reveal (kích hoạt bằng js/scroll-reveal.js) ---- */
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---- Floating mockup ---- */
+.float-slow {
+  animation: float-slow 6s ease-in-out infinite;
+}
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+/* ---- Zalo ping ---- */
+.float-zalo-ping {
+  animation: zalo-ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+@keyframes zalo-ping {
+  0% { transform: scale(1); opacity: 0.8; }
+  75%, 100% { transform: scale(1.7); opacity: 0; }
+}
+
+/* ---- Tôn trọng người dùng tắt hiệu ứng ---- */
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .float-slow { animation: none; }
+  .float-zalo-ping { animation: none; }
+  html { scroll-behavior: auto; }
+}
