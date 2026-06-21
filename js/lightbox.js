@@ -6,7 +6,7 @@
   "use strict";
 
   var images = Array.prototype.slice.call(
-    document.querySelectorAll("#interface img")
+    document.querySelectorAll("#interface img, img[data-zoom]")
   );
   if (!images.length) return;
 
