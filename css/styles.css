@@ -498,3 +498,51 @@ section[id] { scroll-margin-top: 84px; }
 }
 .to-top.is-visible { opacity: 1; visibility: visible; transform: none; }
 .to-top:hover { color: var(--brand-600); border-color: #bfdbfe; }
+
+/* ============ Lightbox (phóng to ảnh giao diện) ============ */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: rgba(15, 23, 42, 0.82);
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+.lightbox.is-open { opacity: 1; visibility: visible; }
+.lightbox-img {
+  max-width: 95vw;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  border-radius: 0.75rem;
+  box-shadow: 0 30px 70px -20px rgba(0, 0, 0, 0.7);
+  transform: scale(0.96);
+  transition: transform 0.2s ease;
+  cursor: zoom-out;
+}
+.lightbox.is-open .lightbox-img { transform: scale(1); }
+.lightbox-close {
+  position: absolute;
+  top: 1rem;
+  right: 1.25rem;
+  height: 2.75rem;
+  width: 2.75rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  line-height: 1;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.lightbox-close:hover { background: rgba(255, 255, 255, 0.25); }
